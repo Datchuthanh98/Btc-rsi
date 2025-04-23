@@ -1,0 +1,93 @@
+a.canvasjs-chart-credit {
+    display: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    max-width: 600px; /* Hạn chế tối đa chiều rộng */
+    display: flex;
+    flex-direction: column;
+}
+
+#controls {
+    position: relative;
+    z-index: 999;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Khoảng cách giữa control và chart */
+}
+
+#controls label {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+}
+
+#intervalSelect {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+#intervalSelect:hover {
+    background-color: #f1f1f1;
+}
+
+#intervalSelect option:hover {
+    background-color: #e9ecef;
+}
+
+#chartContainer {
+    height: 100%;
+    width: 100%;
+    flex-grow: 1; /* Đảm bảo biểu đồ chiếm không gian còn lại */
+}
+
+#title {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.stock-chart {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.chart-price {
+    flex: 3;  /* Biểu đồ giá chiếm 3 phần so với RSI */
+    height: 70%; /* Giảm phần chiếm của biểu đồ giá để có không gian cho thanh navigator */
+}
+
+.chart-rsi {
+    flex: 1;  /* Biểu đồ RSI chiếm 1 phần */
+    height: 25%; /* Cung cấp không gian nhỏ cho RSI */
+}
+
+.navigator {
+    height: 5%; /* Giảm chiều cao thanh điều khiển xuống còn 5% */
+    width: 100%;
+}
