@@ -1,51 +1,74 @@
+/* Ẩn credit của CanvasJS */
 a.canvasjs-chart-credit {
     display: none;
 }
 
+/* Thiết lập box-sizing toàn cục để tính padding vào kích thước */
+* {
+    box-sizing: border-box;
+}
+
+/* Body căn giữa, không scroll ngoài */
 body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0;
     text-align: center;
     font-family: 'Segoe UI', sans-serif;
 }
 
+/* Container chính chứa controls và chart */
 #container {
+    
     width: 100%;
-    height: 100vh;
+    height: 60vh;
     max-width: 1000px;
     display: flex;
     flex-direction: column;
-    gap: 10px; /* khoảng cách giữa các khối */
-    box-sizing: border-box;
-    overflow: hidden; /* Ẩn scroll nếu có */
+    padding: 20px;
+    overflow: hidden;
+    align-items: center;
 }
 
+/* Phần điều khiển (dropdown + button) */
 #controls {
     position: relative;
     z-index: 999;
     background: white;
-    padding: 10px;
+    padding: 16px 20px;
     border-radius: 8px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px; /* Khoảng cách giữa control và chart */
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
+/* Label in đậm */
 #controls label {
     font-weight: bold;
     color: #555;
-    margin-right: 10px;
+    margin-right: 12px;
+    font-size: 18px;
 }
 
-#intervalSelect {
-    padding: 8px;
-    font-size: 14px;
-    border-radius: 5px;
+/* Dropdown và button phóng to */
+#intervalSelect,
+#controls button {
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 6px;
     border: 1px solid #ccc;
     outline: none;
     background-color: #ffffff;
+    min-height: 48px;
+    line-height: 1.2;
+    cursor: pointer;
     transition: all 0.3s ease;
+    margin-right: 12px;
 }
 
 #intervalSelect:hover {
@@ -56,12 +79,19 @@ body {
     background-color: #e9ecef;
 }
 
-#chartContainer {
-    height: 100%;
-    width: 100%;
-    flex-grow: 1; /* Đảm bảo biểu đồ chiếm không gian còn lại */
+#controls button:hover {
+    background-color: #f1f1f1;
 }
 
+/* Container của chart */
+#chartContainer {
+    flex-grow: 1;
+    width: 100%;
+    max-height: 1200px;
+    overflow: hidden;
+}
+
+/* Tiêu đề dưới biểu đồ */
 #title {
     position: absolute;
     bottom: 10px;
@@ -72,6 +102,7 @@ body {
     color: #333;
 }
 
+/* Các tùy chỉnh cho CanvasJS nếu cần */
 .stock-chart {
     display: flex;
     flex-direction: column;
@@ -79,13 +110,13 @@ body {
 }
 
 .canvasjs-navigator-panel {
-    top : 1000px !important
+    top: 1000px !important;
 }
 
 canvasjs-chart-canvas {
     height: 100% !important;
 }
 
-* {
-    box-sizing: border-box;
+.canvasjs-stock-container{
+    max-height: 1200px;
 }
