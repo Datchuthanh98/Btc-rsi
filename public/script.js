@@ -1,5 +1,5 @@
 const INTERVAL_LABELS = {
-    "5m": "M5", "15m": "M15", "1h": "H1", "4h": "H4", "12h": "H12", "1d": "D"
+    "5m": "M5", "15m": "M15", "1h": "H1", "4h": "H4", "12h": "H12", "1d": "D","3d":"D3","1w":"W",
 };
 
 document.getElementById("intervalSelect").addEventListener("change", () => {
@@ -162,13 +162,13 @@ async function loadChart(interval) {
         exportEnabled: true,
         charts: [
             {
-                height: 600,
+                height: 700,
                 axisX: {
                     crosshair: { enabled: true, snapToDataPoint: true },
                     gridColor: "#eeeeee"
                 },
                 axisY: {
-                    title: "Price",
+                    // title: "Price",
                     prefix: "$",
                     gridColor: "#eeeeee",
                     crosshair: { enabled: true }
@@ -209,7 +209,7 @@ async function loadChart(interval) {
                     gridColor: "#eeeeee"
                 },
                 axisY: {
-                    title: "RSI",
+                    // title: "RSI",
                     minimum: 0,
                     maximum: 100,
                     gridColor: "#eeeeee",
