@@ -23,7 +23,6 @@ body {
 
 /* Container chính chứa controls và chart */
 #container {
-    margin-top: 100px;
     width: 100%;
     height: 100vh;
     max-width: 1000px;
