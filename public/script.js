@@ -203,7 +203,7 @@ async function loadChart(interval) {
                 ]
             },
             {
-                height: 400,
+                height: 350,
                 axisX: {
                     crosshair: { enabled: true, snapToDataPoint: true },
                     gridColor: "#eeeeee"
