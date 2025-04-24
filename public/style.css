@@ -24,7 +24,7 @@ body {
 /* Container chính chứa controls và chart */
 #container {
     width: 100%;
-    height: 65vh;
+    height: 80vh;
     max-width: 1000px;
     display: flex;
     flex-direction: column;
@@ -116,6 +116,6 @@ canvasjs-chart-canvas {
     height: 100% !important;
 }
 
-.canvasjs-stock-container{
-    max-height: 1200px;
-}
+/* .canvasjs-stock-container{
+    max-height: 1000px;
+} */
