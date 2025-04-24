@@ -188,7 +188,7 @@ async function loadChart(interval) {
                         type: "line",
                         name: "EMA 9",
                         color: "blue",
-                        lineThickness: 0.5,
+                        lineThickness: 1,
                         showInLegend: true,
                         dataPoints: emaPricePadded
                     },
@@ -196,7 +196,7 @@ async function loadChart(interval) {
                         type: "line",
                         name: "SMA 45",  // SMA45 cho giá
                         color: "orange",
-                        lineThickness: 0.5,
+                        lineThickness: 1,
                         showInLegend: true,
                         dataPoints: smaPricePadded
                     }
@@ -255,7 +255,7 @@ async function loadChart(interval) {
                         type: "line",
                         name: "RSI 14",
                         color: "black",  // Màu đen cho đường RSI
-                        lineThickness: 0.5,
+                        lineThickness: 1,
                         showInLegend: true,
                         dataPoints: rsiDataPadded
                     },
@@ -263,7 +263,7 @@ async function loadChart(interval) {
                         type: "line",
                         name: "EMA 9 (RSI)",
                         color: "blue",
-                        lineThickness: 0.5,
+                        lineThickness: 1,
                         showInLegend: true,
                         dataPoints: emaRSIPadded
                     },
@@ -271,7 +271,7 @@ async function loadChart(interval) {
                         type: "line",
                         name: "WMA 45 (RSI)",  // WMA45 cho RSI
                         color: "orange",
-                        lineThickness: 0.5,
+                        lineThickness: 1,
                         showInLegend: true,
                         dataPoints: wmaRSIPadded
                     }

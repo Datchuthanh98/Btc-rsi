@@ -7,7 +7,6 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
-    height: 100vh;
     text-align: center;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -15,11 +14,12 @@ body {
 #container {
     width: 100%;
     height: 100vh;
-    position: relative;
     max-width: 1000px;
-    padding: 20px; /* Hạn chế tối đa chiều rộng */
     display: flex;
     flex-direction: column;
+    gap: 10px; /* khoảng cách giữa các khối */
+    box-sizing: border-box;
+    overflow: hidden; /* Ẩn scroll nếu có */
 }
 
 #controls {
@@ -86,3 +86,6 @@ canvasjs-chart-canvas {
     height: 100% !important;
 }
 
+* {
+    box-sizing: border-box;
+}
