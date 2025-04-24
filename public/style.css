@@ -16,7 +16,8 @@ body {
     width: 100%;
     height: 100vh;
     position: relative;
-    max-width: 600px; /* Hạn chế tối đa chiều rộng */
+    max-width: 1000px;
+    padding: 20px; /* Hạn chế tối đa chiều rộng */
     display: flex;
     flex-direction: column;
 }
@@ -77,17 +78,11 @@ body {
     height: 100%;
 }
 
-.chart-price {
-    flex: 3;  /* Biểu đồ giá chiếm 3 phần so với RSI */
-    height: 70%; /* Giảm phần chiếm của biểu đồ giá để có không gian cho thanh navigator */
+.canvasjs-navigator-panel {
+    top : 1000px !important
 }
 
-.chart-rsi {
-    flex: 1;  /* Biểu đồ RSI chiếm 1 phần */
-    height: 25%; /* Cung cấp không gian nhỏ cho RSI */
+canvasjs-chart-canvas {
+    height: 100% !important;
 }
 
-.navigator {
-    height: 5%; /* Giảm chiều cao thanh điều khiển xuống còn 5% */
-    width: 100%;
-}
