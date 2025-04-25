@@ -131,9 +131,9 @@ async function loadChart(interval) {
 
     const rsiData = calculateRSI(closePrices, 14);
     const emaRSIData = calculateEMA(rsiData, 9);
-    const wmaRSIData = calculateWMA(rsiData, 45);  // WMA45 cho RSI
+    const wmaRSIData = calculateWMA(rsiData, 45);
     const emaPriceData = calculateEMA(closePrices, 9);
-    const smaPriceData = calculateSMA(closePrices, 45);  // SMA45 cho giá
+    const smaPriceData = calculateSMA(closePrices, 45);
 
     const paddingPoints = 100;
     const lastX = closePrices[closePrices.length - 1].x;
@@ -151,7 +151,9 @@ async function loadChart(interval) {
     const wmaRSIPadded = addPadding(wmaRSIData);
     const candlestickDataPadded = addPadding(candlestickData);
     const emaPricePadded = addPadding(emaPriceData);
-    const smaPricePadded = addPadding(smaPriceData);  // Padded SMA45 data
+    const smaPricePadded = addPadding(smaPriceData);
+
+    const lastPrice = closePrices[closePrices.length - 1].y;
 
     const stockChart = new CanvasJS.StockChart("chartContainer", {
         title: {
@@ -168,10 +170,22 @@ async function loadChart(interval) {
                     gridColor: "#eeeeee"
                 },
                 axisY: {
-                    // title: "Price",
                     prefix: "$",
                     gridColor: "#eeeeee",
-                    crosshair: { enabled: true }
+                    crosshair: { enabled: true },
+                    stripLines: [
+                        {
+                            value: lastPrice,
+                            label: `$${lastPrice.toFixed(2)}`,
+                            color: "black",
+                            lineDashType: "dash",
+                            labelFontColor: "black",
+                            labelAlign: "far",
+                            labelPlacement: "inside",
+                            lineThickness: 1,
+                            labelFontSize: 20,
+                        }
+                    ]
                 },
                 toolTip: { shared: true },
                 data: [
@@ -194,7 +208,7 @@ async function loadChart(interval) {
                     },
                     {
                         type: "line",
-                        name: "SMA 45",  // SMA45 cho giá
+                        name: "SMA 45",
                         color: "orange",
                         lineThickness: 1,
                         showInLegend: true,
@@ -209,44 +223,20 @@ async function loadChart(interval) {
                     gridColor: "#eeeeee"
                 },
                 axisY: {
-                    // title: "RSI",
                     minimum: 0,
                     maximum: 100,
                     gridColor: "#eeeeee",
                     stripLines: [
-                        { 
-                            value: 70, 
-                            label: "70", 
-                            color: "black", 
-                            lineDashType: "dash", 
-                            labelFontColor: "black",
-                            lineThickness: 3  // Tăng độ dày đường đứt
-                        },
-                        { 
-                            value: 50, 
-                            label: "50", 
-                            color: "sliver",
-                            lineDashType: "dash", 
-                            labelFontColor: "black",
-                            lineThickness: 3  // Tăng độ dày đường đứt
-                        },
-                        { 
-                            value: 30, 
-                            label: "30", 
-                            color: "black", 
-                            lineDashType: "dash", 
-                            labelFontColor: "black",
-                            lineThickness: 3  // Tăng độ dày đường đứt
-                        },
+                        { value: 70, label: "70", color: "black", lineDashType: "dash", labelFontColor: "black", lineThickness: 3 },
+                        { value: 50, label: "50", color: "silver", lineDashType: "dash", labelFontColor: "black", lineThickness: 3 },
+                        { value: 30, label: "30", color: "black", lineDashType: "dash", labelFontColor: "black", lineThickness: 3 },
                         {
-                            // Tạo vùng màu nền từ 30 đến 70
                             startValue: 30,
                             endValue: 70,
-                            color: "rgba(159, 130, 229, 0.2)", 
+                            color: "rgba(159, 130, 229, 0.2)",
                             label: "",
                             lineThickness: 0
                         }
-                      
                     ],
                     crosshair: { enabled: true }
                 },
@@ -254,7 +244,7 @@ async function loadChart(interval) {
                     {
                         type: "line",
                         name: "RSI 14",
-                        color: "black",  // Màu đen cho đường RSI
+                        color: "black",
                         lineThickness: 1,
                         showInLegend: true,
                         dataPoints: rsiDataPadded
@@ -269,7 +259,7 @@ async function loadChart(interval) {
                     },
                     {
                         type: "line",
-                        name: "WMA 45 (RSI)",  // WMA45 cho RSI
+                        name: "WMA 45 (RSI)",
                         color: "orange",
                         lineThickness: 1,
                         showInLegend: true,
@@ -296,4 +286,10 @@ async function loadChart(interval) {
     });
 
     stockChart.render();
+
+    setTimeout(() => {
+        console.log("Load chart suggestfully")
+        loadChart(interval);
+    }, 1000 * 60);
 }
+
