@@ -31,7 +31,7 @@ function logout() {
 }
 
 async function loadChart(interval) {
-    const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=${interval}&limit=500`);
+    const res = await fetch(`https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=${interval}&limit=1000`);
     const rawData = await res.json();
 
     const closePrices = rawData.map((d, i) => ({ x: i, y: parseFloat(d[4]) }));
@@ -135,7 +135,7 @@ async function loadChart(interval) {
     const emaPriceData = calculateEMA(closePrices, 9);
     const smaPriceData = calculateSMA(closePrices, 45);  // SMA45 cho giá
 
-    const paddingPoints = 50;
+    const paddingPoints = 200;
     const lastX = closePrices[closePrices.length - 1].x;
 
     function addPadding(dataArray) {
@@ -280,13 +280,13 @@ async function loadChart(interval) {
         ],
         navigator: {
             slider: {
-                minimum: closePrices.length - 100,
+                minimum: closePrices.length - 200,
                 maximum: closePrices.length + paddingPoints 
             }
         },
         rangeSelector: {
             inputFields: {
-                startValue: closePrices.length - 150,
+                startValue: closePrices.length - 200,
                 endValue: closePrices.length,
                 valueFormatString: "###0"
             },
