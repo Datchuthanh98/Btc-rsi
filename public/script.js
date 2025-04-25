@@ -135,7 +135,7 @@ async function loadChart(interval) {
     const emaPriceData = calculateEMA(closePrices, 9);
     const smaPriceData = calculateSMA(closePrices, 45);  // SMA45 cho giá
 
-    const paddingPoints = 200;
+    const paddingPoints = 100;
     const lastX = closePrices[closePrices.length - 1].x;
 
     function addPadding(dataArray) {
