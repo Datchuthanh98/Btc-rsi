@@ -135,7 +135,7 @@ async function loadChart(interval) {
     const emaPriceData = calculateEMA(closePrices, 9);
     const smaPriceData = calculateSMA(closePrices, 45);
 
-    const paddingPoints = 100;
+    const paddingPoints = 150;
     const lastX = closePrices[closePrices.length - 1].x;
 
     function addPadding(dataArray) {
