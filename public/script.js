@@ -164,7 +164,7 @@ async function loadChart(interval) {
         exportEnabled: true,
         charts: [
             {
-                height: 700,
+                height: 550,
                 axisX: {
                     crosshair: { enabled: true, snapToDataPoint: true },
                     gridColor: "#eeeeee"
@@ -217,7 +217,7 @@ async function loadChart(interval) {
                 ]
             },
             {
-                height: 300,
+                height: 450,
                 axisX: {
                     crosshair: { enabled: true, snapToDataPoint: true },
                     gridColor: "#eeeeee"
