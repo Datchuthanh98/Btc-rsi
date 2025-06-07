@@ -287,9 +287,9 @@ async function loadChart(interval) {
 
     stockChart.render();
 
-    setTimeout(() => {
-        console.log("Load chart suggestfully")
-        loadChart(interval);
-    }, 1000 * 60);
+    // setTimeout(() => {
+    //     console.log("Load chart suggestfully")
+    //     loadChart(interval);
+    // }, 1000 * 60);
 }
 
